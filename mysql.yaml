@@ -1,0 +1,19 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: mysql-database
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mysql-database
+    spec:
+      containers:
+      - name: mysql-database
+        image: mysql
+        ports:
+        - containerPort: 3306
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: hackme

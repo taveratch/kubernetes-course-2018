@@ -1,0 +1,21 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: wordpress-blog
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: wordpress-blog
+    spec:
+      containers:
+      - name: wordpress-blog
+        image: wordpress
+        ports:
+        - containerPort: 80
+        env:
+        - name: WORDPRESS_DB_HOST
+          value: mysql-service
+        - name: WORDPRESS_DB_PASSWORD
+          value: hackme
