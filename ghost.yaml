@@ -1,0 +1,16 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: ghost-blog
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: ghost-blog
+    spec:
+      containers:
+      - name: ghost-blog
+        image: ghost
+        ports:
+        - containerPort: 2368

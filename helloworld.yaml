@@ -1,0 +1,16 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: helloworld-app
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: helloworld-app
+    spec:
+      containers:
+      - name: helloworld-app
+        image: gcr.io/wordpress-blog-198110/github-taweesoft-helloworld-app:latest
+        ports:
+        - containerPort: 3000
